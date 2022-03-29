@@ -1,0 +1,6 @@
+﻿/venv
+/.idea
+/.vscode
+/.__pycache__
+_test*.py
+*202*.xlsx
