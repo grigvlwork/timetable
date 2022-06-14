@@ -944,7 +944,6 @@ class TimetableForm(QtWidgets.QDialog, Ui_timetable_view):
         self.work_weekend = dict()
         for ww in w_end:
             self.work_weekend[ww.date_work] = ww.day_of_week
-        print(self.work_weekend)
         self.days_in_month = calendar.monthrange(self.year, self.month)[1]
         self.generate_new_model()
         self.ui.timetable.setModel(self.model)
@@ -996,7 +995,6 @@ class TimetableForm(QtWidgets.QDialog, Ui_timetable_view):
                         for v in vacations:
                             if v.date_begin <= curr_date <= v.date_end:
                                 data.append(self.vacation_type_by_id(v.vacation_type))
-                                print(self.vacation_type_by_id(v.id))
                                 break
                         else:
                             if curr_date in holydays:
