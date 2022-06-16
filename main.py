@@ -980,7 +980,12 @@ class TimetableForm(QtWidgets.QDialog, Ui_timetable_view):
                                                                  or_(and_(Vacation.date_begin >= begin_month,
                                                                           Vacation.date_begin <= end_month),
                                                                      and_(Vacation.date_end >= begin_month,
-                                                                          Vacation.date_end <= end_month)))).all()
+                                                                          Vacation.date_end <= end_month),
+                                                                     and_(Vacation.date_begin <= begin_month,
+                                                                          Vacation.date_end >= begin_month),
+                                                                     and_(Vacation.date_begin <= end_month,
+                                                                          Vacation.date_end >= end_month)
+                                                                     ))).all()
             if len(workload) > 0:
                 teacher_week = ["0"] * 5
                 teacher_week += ["в", "в"]
